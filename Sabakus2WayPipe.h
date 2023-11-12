@@ -66,6 +66,7 @@ SPReadings S2WPipeRead(S2WPipe pipe){
     if (read(access,a.Data,TypeLenghts[pipe.Type]) != TypeLenghts[pipe.Type]){
         a.Err = 2;
     }
+
     return a;
 }
 
@@ -86,6 +87,18 @@ int S2WPipeWrite(S2WPipe pipe, void* ptr){
     return 0;
 }
 
+int S2WPipeClose(S2WPipe pipe){
 
+    int current_Pid = getpid();
+    if (current_Pid == pipe.Pid1){
+        close( pipe.DownStream[1]);
+        close( pipe.UpStream[0]);
+    } else if (current_Pid == pipe.Pid2){
+        close( pipe.UpStream[1]);
+        close( pipe.DownStream[0]);
+    } else {
+        return 3;
+    }
+}
 
 #endif //SABAKUS2WAYPIPE

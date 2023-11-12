@@ -21,27 +21,27 @@ typedef struct  { //secondo i miei calcoli questo array può ospitare 18*10^18 v
     return item;
 };
 
-int ExpandIntArr( IntArr arr){
-    arr.Tlen*=2;
-    arr.Arr = realloc(arr.Arr,sizeof(int)*arr.Tlen);
-    if (arr.Arr == NULL) return 0;
+int ExpandIntArr( IntArr* arr){
+    arr->Tlen*=2;
+    arr->Arr = realloc(arr->Arr,sizeof(int)*arr->Tlen);
+    if (arr->Arr == NULL) return 0;
     return 1;
 };
 
-int IntAppend( IntArr arr, int i){
-    arr.Arr[arr.Len] = i;
-    arr.Len++;
-    if (arr.Len>=arr.Tlen){
+int IntAppend( IntArr* arr, int i){
+    arr->Arr[arr->Len] = i;
+    arr->Len++;
+    if (arr->Len>=arr->Tlen){
 
         if(!ExpandIntArr(arr)) return 0;
     }
     return 1;
 };
 
-int IntPop( IntArr arr){
-    if(arr.Len<1) return 0;
-    arr.Len--;
-    arr.Arr[arr.Len]=0;
+int IntPop( IntArr* arr){
+    if(arr->Len<1) return 0;
+    arr->Len--;
+    arr->Arr[arr->Len]=0;
     return 1;
 };
 
