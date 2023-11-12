@@ -13,10 +13,10 @@ struct IntArr { //secondo i miei calcoli questo array può ospitare 18*10^18 val
     long long unsigned int Tlen;
 };
 
-struct IntArr IntArrContructor(){
+struct IntArr IntArrContructor(long long int len){
     struct IntArr item;
-    item.Len = 0;
-    item.Tlen = 100;
+    item.Len = len;
+    item.Tlen = len+100;
     item.Arr = calloc(item.Tlen,sizeof( int ));
     return item;
 };
