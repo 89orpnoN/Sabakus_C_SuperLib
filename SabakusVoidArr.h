@@ -14,7 +14,7 @@ typedef struct  { //secondo i miei calcoli questo array può ospitare 18*10^18 v
 }VoidArr;
 
 //anche se dichiaro l'array da 100 spazi non è saggio usarli senza metodi prestabiliti
-VoidArr VoidArrContructor(long long unsigned int size, int Typesize = 1){
+VoidArr VoidArrContructor(long long unsigned int size, int Typesize){
     VoidArr item;
     item.TypeSize = Typesize;
     item.Len = size;

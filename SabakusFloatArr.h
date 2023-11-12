@@ -1,6 +1,6 @@
 #ifndef SABAKUSFLOATARR
 #define SABAKUSFLOATARR
-
+#include <stdlib.h>
 //Vi presento la versione "migliorata" dei Sabaku's arrays
 //questa volta più grossi, più spavaldi e più peggiori di sempre
 //I SABAKU'S HEAVY DUTY ARRAYS, che includono un contatore dello spazio in formato Unsigned long long int
@@ -18,14 +18,14 @@ struct FloatArr FloatArrContructor(){
     item.Tlen = 100;
     item.Arr = calloc(item.Tlen,sizeof( float ) );
     return item;
-};
+}
 
 int ExpandFloatArr(struct FloatArr arr){
     arr.Tlen*=2;
     arr.Arr = realloc(arr.Arr,sizeof(float)*arr.Tlen);
     if (arr.Arr == NULL) return 0;
     return 1;
-};
+}
 
 int FloatAppend(struct FloatArr arr, int i){
     arr.Arr[arr.Len] = i;
@@ -35,13 +35,13 @@ int FloatAppend(struct FloatArr arr, int i){
         if(!ExpandFloatArr(arr)) return 0;
     }
     return 1;
-};
+}
 
 int FloatPop(struct FloatArr arr){
     if(arr.Len<1) return 0;
     arr.Len--;
     arr.Arr[arr.Len]=0;
     return 1;
-};
+}
 
 #endif //SABAKUSFLOATARR

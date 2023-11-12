@@ -17,7 +17,7 @@ struct IntArr IntArrContructor(){
     struct IntArr item;
     item.Len = 0;
     item.Tlen = 100;
-    item.Arr = calloc(item.Tlen,sizeof( int );
+    item.Arr = calloc(item.Tlen,sizeof( int ));
     return item;
 };
 
